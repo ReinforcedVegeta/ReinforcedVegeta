@@ -62,38 +62,37 @@ root_path = '.'
 # )
 
 
-# actions = [
-#     (0, 'L', '', 'L', ''),
-#     (0, 'R', '', 'R', ''),
-
-#     (0, 'B', '', 'B', ''),  # B
-#     (0, 'DB', '', 'DB', ''),  # 2_B
-#     # ('DB', ' ', 'DB', ' ', 'DB', ' ', 'DB', ' '),  # 2_B
-
-#     (2, 'D', 'DR', 'RA', ''),  # 2 3 6_A
-#     (30, 'D', 'DR', 'RB', ''),  # 2 3 6_B
-#     (150, 'D', 'DR', 'RC', ''),  # 2 3 6_C
-
-#     ## ('R', 'D', 'RDA', ''),   # 6 2 3_A
-#     ## ('R', 'D', 'RDB', ''),   # 6 2 3_B
-
-#     (0, 'D', 'LD', 'LA', ''),   # 2 1 4_A
-#     (50, 'D', 'LD', 'LB', ''),   # 2 1 4_B
-# ]
-
-
 actions = [
-    #(300, 'LU', 'B', 'B', 'B'),  # FOR_JUMP _B B B
-    (0, 'LU', 'B', 'B', 'B'),  # FOR_JUMP _B B B
-    (0, 'LU'),  # FOR_JUMP
-    (100, 'D', 'DL', 'LC'),  # STAND_D_DF_FC, 2 3 6 _ C
-    (50, 'D', 'DR', 'RB'),  # STAND_D_DB_BB, 2 1 4 _ B
-    (0, 'L', 'LD', 'DL', 'LA'),  # STAND_F_D_DFA, 6 2 3 _ A
-    (0, 'L', 'L', 'L', ''),  # 6 6 6
-    (0, 'B'),  # B
-    (5, 'U', 'UD', 'DB'),   # AIR_DB
-    (50, 'D', 'DR', 'RD', 'DB'),   # 2 1 4_B
+    (0, 'L', '', '', ''),  # defense
+    (0, 'LA', '', '', ''),  # throw
+
+    (0, 'L', '', 'L', '', '', ''),
+    (0, 'R', '', 'R', '', '', ''),
+
+    (0, 'B', '', 'B', '', 'B', ''),  # B
+    (0, 'DB', '', 'DB', '', 'DB', ''),  # 2_B
+
+    (2, 'D', 'DR', 'RA', '', '', ''),  # 2 3 6_A
+    (30, 'D', 'DR', 'RB', '', '', ''),  # 2 3 6_B
+    # (150, 'D', 'DR', 'RC', '', '', ''),  # 2 3 6_C
+
+    (0, 'D', 'LD', 'LA', '', '', ''),   # 2 1 4_A
+    (50, 'D', 'LD', 'LB', '', '', ''),   # 2 1 4_B
 ]
+
+
+# actions = [
+#     #(300, 'LU', 'B', 'B', 'B'),  # FOR_JUMP _B B B
+#     (0, 'LU', 'B', 'B', 'B'),  # FOR_JUMP _B B B
+#     (0, 'LU'),  # FOR_JUMP
+#     (100, 'D', 'DL', 'LC'),  # STAND_D_DF_FC, 2 3 6 _ C
+#     (50, 'D', 'DR', 'RB'),  # STAND_D_DB_BB, 2 1 4 _ B
+#     (0, 'L', 'LD', 'DL', 'LA'),  # STAND_F_D_DFA, 6 2 3 _ A
+#     (0, 'L', 'L', 'L', ''),  # 6 6 6
+#     (0, 'B'),  # B
+#     (5, 'U', 'UD', 'DB'),   # AIR_DB
+#     (50, 'D', 'DR', 'RD', 'DB'),   # 2 1 4_B
+# ]
 
 energy_cost = [action[0] for action in actions]
 left_actions = [action[1:] for action in actions]
