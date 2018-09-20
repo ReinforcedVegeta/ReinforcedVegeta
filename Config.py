@@ -35,10 +35,10 @@ resolution = (4, 38, 57)
 # memory_size = 500000
 memory_size = 50000
 batch_size = 32
-learning_rate = 0.01
-gamma = 0.9999  # discount factor
+learning_rate = 0.00025
+gamma = 0.99  # discount factor
 #epsilon = 1.0  # initial epsilon (exploration rate) for epsilon greedy algorithm
-epsilon = 0.1  # initial epsilon (exploration rate) for epsilon greedy algorithm
+epsilon = 1.0  # initial epsilon (exploration rate) for epsilon greedy algorithm
 reward_scale = 30.0   # scaled_reward = reward / reward_scale
 #reward_scale = 100.0   # scaled_reward = reward / reward_scale
 energy_scale = 300.0  # scaled_energy = energy / energy_scale
