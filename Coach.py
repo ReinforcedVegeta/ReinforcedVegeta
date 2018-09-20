@@ -39,20 +39,20 @@ class Net(nn.Module):
         super(Net, self).__init__()
         channel, height, width = input_shape
         # [-1, 4, 38, 57]
-        self.conv1 = nn.Conv2d(channel, 8, 6, stride=3)
+        self.conv1 = nn.Conv2d(channel, 8, 6, stride=2)
         # [-1, 8, 11, 18]
-        self.conv2 = nn.Conv2d(8, 8, 3, stride=2)
+        self.conv2 = nn.Conv2d(8, 8, 3, stride=1)
         # [-1, 8, 5, 8]
         self.conv2_drop = nn.Dropout2d()
-        self.fc1 = nn.Linear(8 * 5 * 8 + 1, 128)
-        self.fc2 = nn.Linear(128, n_outputs)
+        self.fc1 = nn.Linear(8 * 9 * 16 + 1, 256)
+        self.fc2 = nn.Linear(256, n_outputs)
 
     def forward(self, s1, eng):
         try:
             s1_org = s1
             s1 = F.relu(self.conv1(s1_org))
             s1 = F.relu(self.conv2_drop(self.conv2(s1)))
-            s1 = s1.view(-1, 8 * 5 * 8)
+            s1 = s1.view(-1, 8 * 9 * 16)
             x = torch.cat((s1, eng), 1)
             x = F.relu(self.fc1(x))
             x = F.dropout(x, training=self.training)
