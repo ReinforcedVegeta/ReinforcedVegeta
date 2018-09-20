@@ -238,7 +238,12 @@ class BasicBot(object):
                     my_hp_2, opp_hp_2 = self.hps[4]
                 self.old_hp = (my_hp_1, opp_hp_1)
                 energy = self.energy[0]
-                r = (opp_hp_1 - opp_hp_2) - (my_hp_1 - my_hp_2) if energy_cost[a] > energy else 0#-1.0
+                r = (opp_hp_1 - opp_hp_2) - (my_hp_1 - my_hp_2) 
+                if energy_cost[a] > energy:
+                    r -= 0.1
+                if opp_hp_1 >= my_hp_1:
+                    r -= 0.1
+                
 
                 if self.controllable[0]:
                     # memorize sample when character is controllable
